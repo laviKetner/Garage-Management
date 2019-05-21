@@ -2,7 +2,7 @@
 {
     public enum eVehicleType
     {
-        ElectricCar,
+        ElectricCar = 1,
         GasCar,
         ElectricMotorcycle,
         GasMotorcycle,
