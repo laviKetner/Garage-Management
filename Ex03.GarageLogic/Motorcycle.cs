@@ -2,10 +2,10 @@
 {
     public enum eLicenceType
     {
-        A,
+        A = 1,
         A1,
-        B1,
-        B2,
+        A2,
+        B,
     }
 
     public class Motorcycle

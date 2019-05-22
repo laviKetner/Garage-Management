@@ -2,7 +2,7 @@
 {
     public enum eColor
     {
-        red,
+        red = 1,
         blue,
         black,
         gray
@@ -13,9 +13,8 @@
         //All the cars (Gas and Electric) have the same number of wheels(4), and the same Max air pressure(31)
         public const byte k_NumOfWheels = 4;
         public const float k_MaxAirPressure = 31;
-
-        private const byte k_MaxNumOfDoors = 5;
-        private const byte k_MinNumOfDoors = 2;
+        public const byte k_MaxNumOfDoors = 5;
+        public const byte k_MinNumOfDoors = 2;
 
         private eColor m_Color;
         private int m_NumOfDoors;
