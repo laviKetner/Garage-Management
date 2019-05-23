@@ -19,8 +19,8 @@
         //                                Constructor                              //
         //-------------------------------------------------------------------------//
 
-        public GasVehicle(string i_ModelName, string i_LicenceNumber, eGasType i_GasType, float i_MaxGasCapasity)
-       : base(i_ModelName, i_LicenceNumber)
+        public GasVehicle(string i_ModelName, string i_LicenceNumber, eGasType i_GasType, float i_MaxGasCapasity, float i_EnergyLeftPercent)
+       : base(i_ModelName, i_LicenceNumber, i_EnergyLeftPercent)
         {
             if (i_MaxGasCapasity > 0)
             {

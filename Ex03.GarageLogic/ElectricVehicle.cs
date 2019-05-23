@@ -10,8 +10,8 @@
         //                                Constructor                              //
         //-------------------------------------------------------------------------//
 
-        public ElectricVehicle(string i_ModelName, string i_LicenceNumber, float i_MaxBatteryTime)
-       : base(i_ModelName, i_LicenceNumber)
+        public ElectricVehicle(string i_ModelName, string i_LicenceNumber, float i_MaxBatteryTime , float i_EnergyLeftPercent)
+       : base(i_ModelName, i_LicenceNumber, i_EnergyLeftPercent)
         {
             if (i_MaxBatteryTime > 0)
             {

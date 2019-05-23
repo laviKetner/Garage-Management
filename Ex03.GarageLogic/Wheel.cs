@@ -2,28 +2,21 @@
 {
     public class Wheel
     {
-        private string m_ManufacturerName;
         public readonly float r_MaxAirPreasure;
-        private float m_AirPreasure = 0;
+        private string m_ManufacturerName;
+        private float m_AirPreasure;
+
 
 
         //-------------------------------------------------------------------------//
         //                                Constructor                              //
         //-------------------------------------------------------------------------//
 
-        public Wheel(string i_ManufacturerName, float i_MaxAirPreasure)
+        public Wheel(string i_ManufacturerName, float i_MaxAirPreasure, float i_CurrentAirPreasure)
         {
             m_ManufacturerName = i_ManufacturerName;
-
-            // Maximum air preasure must to be positive
-            if (i_MaxAirPreasure > 0)
-            {
-                r_MaxAirPreasure = i_MaxAirPreasure;
-            }
-            else
-            {
-                throw new ValueOutOfRangeException();
-            }
+            m_AirPreasure = i_CurrentAirPreasure;
+            r_MaxAirPreasure = i_MaxAirPreasure;
         }
     }
 }

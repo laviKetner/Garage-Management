@@ -1,4 +1,5 @@
-﻿namespace Ex03.GarageLogic
+﻿using System.Collections.Generic;
+namespace Ex03.GarageLogic
 {
     public class ElectricCar: ElectricVehicle
     {
@@ -9,10 +10,10 @@
         //                                Constructor                              //
         //-------------------------------------------------------------------------//
 
-        public ElectricCar(string i_ModelName, string i_LicenseNumber, string i_WheelsManufacturerName, Car i_CarCommponent)
-                           : base(i_ModelName, i_LicenseNumber, k_MaxBatteryTime)
+        public ElectricCar(string i_ModelName, string i_LicenseNumber, List<string> i_WheelsInfo,float i_EnergyLeftPercent, Car i_CarCommponent)
+                           : base(i_ModelName, i_LicenseNumber, k_MaxBatteryTime, i_EnergyLeftPercent)
         {
-            AddWheels(i_WheelsManufacturerName, Car.k_MaxAirPressure, Car.k_NumOfWheels);
+            AddWheels(i_WheelsInfo, Car.k_MaxAirPressure, Car.k_NumOfWheels);
             m_Car = i_CarCommponent;
         }
     }
