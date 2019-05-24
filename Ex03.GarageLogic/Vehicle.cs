@@ -6,38 +6,72 @@ namespace Ex03.GarageLogic
     public abstract class Vehicle
     {
         private string m_ModelName;
-        private string m_LicenceNum;
+        private string m_LicenseNum;
         private float m_EnergyLeftPercent;
-        private List<Wheel> m_Wheels = new List<Wheel>();
 
         //-------------------------------------------------------------------------//
         //                                Constructor                              //
         //-------------------------------------------------------------------------//
-
         protected Vehicle(string i_ModelName, string i_LicenseNumber, float i_EnergyLeftPercent)
         {
-            if (!string.IsNullOrEmpty(i_ModelName) && !string.IsNullOrEmpty(i_LicenseNumber))
+            m_ModelName = i_ModelName;
+            m_LicenseNum = i_LicenseNumber;
+            m_EnergyLeftPercent = i_EnergyLeftPercent;
+        }
+
+        //-------------------------------------------------------------------------//
+        //                             Pubilc Methods                              //
+        //-------------------------------------------------------------------------//
+        public void InflateWheelsToMax()
+        {
+            if (this is ElectricCar)
             {
-                m_ModelName = i_ModelName;
-                m_LicenceNum = i_LicenseNumber;
-                m_EnergyLeftPercent = i_EnergyLeftPercent;
+                ((ElectricCar)this).GetCar.InflateWheelsToMax();
             }
-            else
+            else if (this is GasCar)
             {
-                throw new ArgumentException("Empty field");
+                ((GasCar)this).GetCar.InflateWheelsToMax();
+            }
+            else if (this is ElectricMotorcycle)
+            {
+                ((ElectricMotorcycle)this).GetMotorcycle.InflateWheelsToMax();
+            }
+            else if (this is GasMotorcycle)
+            {
+                ((GasMotorcycle)this).GetMotorcycle.InflateWheelsToMax();
+            }
+            else if (this is GasTruck)
+            {
+                ((GasTruck)this).GetTruck.InflateWheelsToMax();
             }
         }
 
-        protected void AddWheels(List<string> i_WheelsInfo, float i_MaxAirPreasure, byte i_NumberOfWheels)
+        public float EnergyLeftPercent
         {
-            for (byte i = 0; i < i_NumberOfWheels; i++)
+            get
             {
-                string manufacturerName = i_WheelsInfo[0];
-                float airPressure = float.Parse(i_WheelsInfo[1]);
-
-                Wheel currentWheel = new Wheel(manufacturerName, i_MaxAirPreasure, airPressure);
-                m_Wheels.Add(currentWheel);
+                return m_EnergyLeftPercent;
             }
+
+            set
+            {
+                m_EnergyLeftPercent = value;
+            }
+        }
+
+        public string LicenseNum
+        {
+            get
+            {
+                return m_LicenseNum;
+            }
+        }
+
+        public override string ToString()
+        {
+            string vehicleInformation = string.Format("Model name: {0}\nLicense number: {1}\nEnergy left: {2}\n", m_ModelName, m_LicenseNum, m_EnergyLeftPercent.ToString());
+
+            return vehicleInformation;
         }
     }
 }

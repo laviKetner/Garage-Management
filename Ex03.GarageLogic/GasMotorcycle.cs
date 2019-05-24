@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+
 namespace Ex03.GarageLogic
 {
     public class GasMotorcycle : GasVehicle
@@ -11,15 +12,26 @@ namespace Ex03.GarageLogic
         //-------------------------------------------------------------------------//
         //                                Constructor                              //
         //-------------------------------------------------------------------------//
-
-        public GasMotorcycle(string i_ModelName, string i_LicenceNumber, List<string> i_WheelsInfo, float i_EnergyLeftPercent, Motorcycle i_MotorcycleCommponent)
+        public GasMotorcycle(string i_ModelName, string i_LicenceNumber, List<string> i_WheelsInfo, float i_EnergyLeftPercent, Motorcycle i_InnerVehicleInfo)
             : base(i_ModelName, i_LicenceNumber, k_GasType, k_MaxGasCapasity, i_EnergyLeftPercent)
         {
-            AddWheels(i_WheelsInfo, Motorcycle.k_MaxAirPressure, Motorcycle.k_NumOfWheels);
+            m_Motorcycle = i_InnerVehicleInfo;
+            m_Motorcycle.AddWheels(i_WheelsInfo);
+        }
 
-            m_Motorcycle = i_MotorcycleCommponent;
+        public Motorcycle GetMotorcycle
+        {
+            get
+            {
+                return m_Motorcycle;
+            }
+        }
+
+        public override string ToString()
+        {
+            string infoGasMotorcycle = string.Format("{0}\n{1}", base.ToString(), m_Motorcycle.ToString());
+
+            return infoGasMotorcycle;
         }
     }
-}
-                  
-                  
+}      
