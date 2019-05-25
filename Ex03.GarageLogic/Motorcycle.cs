@@ -10,7 +10,7 @@ namespace Ex03.GarageLogic
         B,
     }
 
-    public class Motorcycle
+    public sealed class Motorcycle
     {
         // All the Motorcycles (Gas and Electric) have the same number of wheels(2), and the same Max air pressure(33)
         private readonly int m_EngineCapacity;

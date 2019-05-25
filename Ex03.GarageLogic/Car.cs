@@ -10,7 +10,7 @@ namespace Ex03.GarageLogic
         gray
     }
 
-    public class Car
+    public sealed class Car
     {
         public const byte k_NumOfWheels = 4;
         public const float k_MaxAirPressure = 31;

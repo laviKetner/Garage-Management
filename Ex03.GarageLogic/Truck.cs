@@ -2,7 +2,7 @@
 
 namespace Ex03.GarageLogic
 {
-    public class Truck
+    public sealed class Truck
     {
         public const byte k_NumOfWheels = 12;
         public const float k_MaxAirPressure = 26;
